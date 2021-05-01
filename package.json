@@ -1,0 +1,35 @@
+{
+	"name": "myapp",
+	"version": "0.0.1",
+	"private": true,
+	"scripts": {
+		"serve": "vue-cli-service serve",
+		"build": "vue-cli-service build",
+		"test:unit": "vue-cli-service test:unit",
+		"test:e2e": "vue-cli-service test:e2e",
+		"lint": "vue-cli-service lint"
+	},
+	"prettier": {
+		"tabWidth": 2,
+		"useTabs": true,
+		"semi": false,
+		"singleQuote": true
+	},
+	"dependencies": {
+		"@capacitor/core": "2.4.7",
+		"@ionic/vue": "^5.4.0",
+		"@ionic/vue-router": "^5.4.0",
+		"core-js": "^3.6.5",
+		"firebase": "^8.4.3",
+		"vue": "^3.0.0-0",
+		"vue-router": "^4.0.0-0",
+		"vuex": "^4.0.0"
+	},
+	"devDependencies": {
+		"@capacitor/cli": "2.4.7",
+		"@vue/cli-plugin-router": "~4.5.0",
+		"@vue/cli-service": "~4.5.0",
+		"@vue/compiler-sfc": "^3.0.0-0"
+	},
+	"description": "An Ionic project"
+}
