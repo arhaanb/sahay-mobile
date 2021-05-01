@@ -20,7 +20,7 @@
 }
 
 *, body {
-	font-family: "luf-reg" !important;
+	font-family: "luf-reg";
 	outline: none;
 }
 
@@ -34,4 +34,9 @@ strong {
 
 body {
 	background-color: #4A2C81 !important;
+}
+
+.container {
+	padding: 0 2em;
+	width: 100%;
 }

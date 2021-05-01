@@ -19,6 +19,7 @@
 		"@capacitor/core": "2.4.7",
 		"@ionic/vue": "^5.4.0",
 		"@ionic/vue-router": "^5.4.0",
+		"axios": "^0.21.1",
 		"core-js": "^3.6.5",
 		"firebase": "^8.4.3",
 		"vue": "^3.0.0-0",

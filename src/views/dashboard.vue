@@ -1,7 +1,8 @@
 <template>
 	<ion-page>
-		<div>
-			<!-- <h1>Hello man.. {{ user.data.displayName }}</h1> -->
+		<div class="container">
+			<h1 class="med" v-if="user">Hello, {{ user.data.displayName }}</h1>
+			<p>Please complete your details below</p>
 			<a class="nav-link" @click.prevent="signOut">Sign out</a>
 			{{ user }}
 		</div>
@@ -9,7 +10,7 @@
 </template>
 
 <script>
-import { IonPage, onIonViewDidEnter } from '@ionic/vue'
+import { IonPage } from '@ionic/vue'
 import firebase from 'firebase'
 
 export default {
@@ -43,3 +44,9 @@ export default {
 	},
 }
 </script>
+
+<style scoped>
+h1.med {
+	text-transform: capitalize;
+}
+</style>

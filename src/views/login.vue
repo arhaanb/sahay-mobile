@@ -97,11 +97,6 @@ input::placeholder {
 	color: rgba(249, 202, 35, 0.4);
 }
 
-.container {
-	padding: 0 2em;
-	width: 100%;
-}
-
 .btn {
 	padding: 1em;
 	width: 100%;

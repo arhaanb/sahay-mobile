@@ -1,29 +1,40 @@
 <template>
 	<ion-page>
-		<div>
-			<div class="card-header">Register</div>
-			<router-link to="/login">already have an account?</router-link>
-			<div class="card-body">
-				<div v-if="error">{{ error }}</div>
-				<form action="#" @submit.prevent="submit">
-					<label for="name">Name</label>
-					<input type="name" required v-model="form.name" />
+		<div class="container">
+			<h1 class="yellow login"><strong>Sign up</strong></h1>
+			<div v-if="error">{{ error }}</div>
+			<form action="#" @submit.prevent="submit">
+				<input
+					type="name"
+					placeholder="Hospital/Entity Name"
+					required
+					v-model="form.name"
+				/>
 
-					<br />
+				<input type="name" placeholder="Phone" required v-model="form.phone" />
 
-					<label for="email">Email</label>
-					<input type="email" required v-model="form.email" />
+				<br />
 
-					<br />
+				<input type="email" placeholder="Email" required v-model="form.email" />
 
-					<label for="password">Password</label>
-					<input type="password" required v-model="form.password" />
+				<br />
 
-					<br />
+				<input
+					type="password"
+					placeholder="Password"
+					required
+					v-model="form.password"
+				/>
 
-					<button type="submit" class="btn btn-primary">Register</button>
-				</form>
-			</div>
+				<br />
+
+				<button type="submit" class="btn">Create account</button>
+				<p class="thing">
+					<router-link to="/login" class="link"
+						>Or login to existing account</router-link
+					>
+				</p>
+			</form>
 		</div>
 	</ion-page>
 </template>
@@ -44,6 +55,7 @@ export default {
 				name: '',
 				email: '',
 				password: '',
+				phone: '',
 			},
 			error: null,
 		}
@@ -67,3 +79,52 @@ export default {
 	},
 }
 </script>
+
+<style scoped>
+.yellow {
+	color: #f9ca23;
+}
+
+.login {
+	font-size: 62px;
+	margin-bottom: 0.4em;
+	margin-top: 2em;
+}
+
+input {
+	width: 100%;
+	padding: 1.4em 1em;
+	border: none;
+	background-color: rgba(249, 202, 35, 0.1);
+	border-radius: 0.75em;
+	margin-bottom: 0.5em;
+	border: solid 2px rgba(249, 202, 35, 0);
+}
+input:focus {
+	border: solid 2px rgba(249, 202, 35, 0.8);
+}
+
+input::placeholder {
+	color: rgba(249, 202, 35, 0.4);
+}
+
+.btn {
+	padding: 1em;
+	width: 100%;
+	background-color: #f9ca23;
+	color: #4a2c81;
+	font-size: 23px;
+	margin-top: 1.5em;
+	border-radius: 0.75em;
+	font-family: 'luf-semi';
+}
+
+.link {
+	font-size: 1.1em;
+	color: #f9ca23;
+}
+
+p.thing {
+	margin-top: 2em;
+}
+</style>
