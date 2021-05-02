@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const API_URL = 'http://app.sahay.us/api'
+const API_URL = 'https://app.sahay.us/api'
 
 class UserService {
 	getHosp() {
@@ -72,18 +72,6 @@ class UserService {
 	specificHospital(id) {
 		return axios.get(`${API_URL}/user`, { headers: { email: id } })
 	}
-	// //get company specific comps
-	// getSpecificCompetitionforCompany(cid) {
-	// 	return axios.post(
-	// 		`${API_URL}/competition/getcompofcompany`,
-	// 		{
-	// 			cid
-	// 		},
-	// 		{
-	// 			headers: authHeader()
-	// 		}
-	// 	)
-	// }
 }
 
 export default new UserService()

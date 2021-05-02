@@ -6,55 +6,28 @@
 					<router-link to="/feed" class="back">
 						<img src="../theme/assets/icons/back.svg" alt="" />
 					</router-link>
-					<h1 class="med yellow title">Requests</h1>
-				</div>
-				<p class="poppy">Explain your problem and how others can help</p>
-
-				<input
-					type="text"
-					v-model="req.need"
-					placeholder="Problem (Ex. need ventilators)"
-				/>
-				<h2 class="sub yellow med">Description</h2>
-				<textarea
-					type="text"
-					v-model="req.description"
-					placeholder="Further explanation"
-				/>
-				<br />
-				<div style="margin-top: 0.75em" class="switchboc">
-					<label>Urgent?</label>
-					<label class="switch">
-						<input type="checkbox" value="1" v-model="req.urgent" />
-						<span class="slider round"></span>
-					</label>
+					<h1 class="med yellow title">Contact details</h1>
 				</div>
 
-				<br />
-				<button @click="sendRequest" class="btn sign">
-					<span>Request help</span>
-					<img src="../theme/assets/arrow.svg" alt="" />
-				</button>
-				<br />
-
-				<section v-if="hasReqs">
-					<h2 class="yellow med">Existing requests</h2>
-					<div v-for="r in response.requests" :key="r">
-						<div class="cardreq">
-							<h3 class="yellow med" style="text-transform: capitalize">
-								{{ r.need }}
-							</h3>
-							<p>
-								<span class="yellow">Status:</span>
-								<span v-if="r.urgent" class="urgent">&nbsp;Urgent</span>
-								<span v-else>&nbsp;Not Urgent</span>
-							</p>
-							<!-- <button class="contactbtn">Contact</button> -->
-						</div>
+				<div v-if="response">
+					<h1 class="yellow med center">{{ response.name }}</h1>
+					<p class="help">
+						has requested to help you. <br />
+						Contact them via these methods.
+					</p>
+					<div class="box">
+						<h2>{{ $route.query.email }}</h2>
+						<h5>Email</h5>
 					</div>
-				</section>
-
-				<br />
+					<div class="box">
+						<h2>{{ response.phone }}</h2>
+						<h5>Phone Number</h5>
+					</div>
+					<div class="box">
+						<h2 class="addr">{{ response.address }}</h2>
+						<h5>Address</h5>
+					</div>
+				</div>
 			</div>
 		</ion-content>
 	</ion-page>
@@ -109,20 +82,8 @@ export default {
 				})
 		},
 		getData() {
-			UserService.specificHospital(firebase.auth().currentUser.email).then(
+			UserService.specificHospital(this.$route.query.email).then(
 				(response) => {
-					if (response.data[0].accountSet == 0) {
-						this.setup = false
-					} else {
-						this.setup = true
-					}
-
-					if (
-						response.data[0].requests.length > 0 ||
-						response.data[0].requests !== []
-					) {
-						this.hasReqs = true
-					}
 					this.response = response.data[0]
 
 					console.log(response.data[0])
@@ -166,6 +127,32 @@ export default {
 </script>
 
 <style scoped>
+.help {
+	text-align: center;
+	font-size: 1.1em;
+	margin: 0;
+	margin-bottom: 2em;
+}
+.center {
+	text-align: center;
+	margin-top: 2em;
+	margin-bottom: 0;
+	font-size: 1.75em;
+}
+.box {
+	border: solid 1px rgba(249, 202, 35, 1);
+	background-color: rgba(249, 202, 35, 0.1);
+	border-radius: 0.75em;
+	text-align: center;
+	margin-bottom: 1em;
+	padding: 1em;
+}
+.box h5 {
+	color: rgba(249, 202, 35, 1);
+}
+.box h2.addr {
+	text-transform: capitalize;
+}
 .cardreq {
 	padding: 1em;
 	border: solid 1px rgba(249, 202, 35, 1);

@@ -40,7 +40,7 @@
 								<div class="circle"></div>
 								<span>Urgent</span>
 							</div>
-							<button class="contactbtn">Contact</button>
+							<button @click="$router.push(`/contact?email=${req.user.email}`)" class="contactbtn">Contact</button>
 						</div>
 					</div>
 				</div>
@@ -129,6 +129,7 @@ export default {
 			UserService.getAllRequests().then(
 				(response) => {
 					this.requests = response.data
+					this.requests.reverse()
 				},
 				(error) => {
 					this.error =

@@ -77,7 +77,7 @@ export default {
 				email: this.form.email,
 				address: this.form.address,
 				password: this.form.password,
-				phone: this.form.phone,
+				pNumber: this.form.phone,
 			}).then(
 				(response) => {
 					this.response = response.data
