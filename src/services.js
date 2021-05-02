@@ -1,11 +1,6 @@
 import axios from 'axios'
-let API_URL
 
-if (process.env.NODE_ENV == 'production') {
-	API_URL = 'https://api.bugbase.in/api'
-} else {
-	API_URL = 'http://localhost:5000/api'
-}
+const API_URL = 'http://app.sahay.us/api'
 
 class UserService {
 	getHosp() {
