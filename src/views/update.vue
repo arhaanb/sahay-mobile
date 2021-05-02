@@ -2,25 +2,45 @@
 	<ion-page>
 		<ion-content>
 			<div class="container">
-				<img src="../theme/assets/ylogo.svg" alt="" class="logo" />
-				<h1 class="med hello" v-if="response">Hello, {{ response.name }}</h1>
-				<p class="pls">Please complete your details below</p>
+				<div class="head">
+					<router-link to="/feed" class="back">
+						<img src="../theme/assets/icons/back.svg" alt="" />
+					</router-link>
+					<h1 class="med yellow title">Edit details</h1>
+				</div>
+				<br />
+				<div class="niceinp" v-if="response">
+					<div class="sub">Hospital name</div>
+					<input
+						type="text"
+						v-model="response.name"
+						placeholder="Maximum capacity"
+						disabled
+					/>
+				</div>
+				<br />
 
 				<div class="title">
 					<img src="../theme/assets/capacity.svg" alt="" />
 					<h2 class="sub">Capacity</h2>
 				</div>
-				<input
-					type="text"
-					v-model="capacity.current"
-					placeholder="Current capacity"
-				/>
-				<input
-					type="text"
-					v-model="capacity.maximum"
-					placeholder="Maximum capacity"
-				/>
-
+				<div class="niceinp">
+					<div class="sub">Current capacity</div>
+					<input
+						type="text"
+						v-model="capacity.current"
+						placeholder="Current capacity"
+					/>
+				</div>
+				<br />
+				<div class="niceinp">
+					<div class="sub">Maximum capacity</div>
+					<input
+						type="text"
+						v-model="capacity.maximum"
+						placeholder="Maximum capacity"
+					/>
+				</div>
 				<br /><br />
 
 				<div class="title">
@@ -29,78 +49,112 @@
 				</div>
 
 				<div v-if="load" class="grid">
-					<div class="obj">
-						<img src="../theme/assets/icons/remedesivir.svg" alt="" />
-						<input
-							type="text"
-							placeholder="Remedesivir"
-							v-model="items.remedesivir"
-						/>
+					<div class="smlinp">
+						<span class="sub">Remedesivir</span>
+						<div class="obj">
+							<img src="../theme/assets/icons/remedesivir.svg" alt="" />
+							<input
+								type="text"
+								placeholder="Remedesivir"
+								v-model="items.remedesivir"
+							/>
+						</div>
 					</div>
 
-					<div class="obj">
-						<img src="../theme/assets/icons/cylinder.svg" alt="" />
-						<input
-							type="text"
-							placeholder="Cylinders"
-							v-model="items.oxygenCylinder"
-						/>
+					<div class="smlinp">
+						<span class="sub">Cylinders</span>
+						<div class="obj">
+							<img src="../theme/assets/icons/cylinder.svg" alt="" />
+							<input
+								type="text"
+								placeholder="Cylinders"
+								v-model="items.oxygenCylinder"
+							/>
+						</div>
 					</div>
 
-					<div class="obj">
-						<img src="../theme/assets/icons/heartrate.svg" alt="" />
-						<input
-							type="text"
-							placeholder="Heart Rate Monitors"
-							v-model="items.heartRateMonitors"
-						/>
+					<div class="smlinp">
+						<span class="sub">Heart Monitors</span>
+						<div class="obj">
+							<img src="../theme/assets/icons/heartrate.svg" alt="" />
+							<input
+								type="text"
+								placeholder="Heart Rate Monitors"
+								v-model="items.heartRateMonitors"
+							/>
+						</div>
 					</div>
 
-					<div class="obj">
-						<img src="../theme/assets/icons/ppe.svg" alt="" />
-						<input type="text" placeholder="PPE Kits" v-model="items.ppeKits" />
+					<div class="smlinp">
+						<span class="sub">PPE Kits</span>
+						<div class="obj">
+							<img src="../theme/assets/icons/ppe.svg" alt="" />
+							<input
+								type="text"
+								placeholder="PPE Kits"
+								v-model="items.ppeKits"
+							/>
+						</div>
 					</div>
 
-					<div class="obj">
-						<img src="../theme/assets/icons/ventilators.svg" alt="" />
-						<input
-							type="text"
-							placeholder="Ventilators"
-							v-model="items.ventilators"
-						/>
+					<div class="smlinp">
+						<span class="sub">Ventilators</span>
+						<div class="obj">
+							<img src="../theme/assets/icons/ventilators.svg" alt="" />
+							<input
+								type="text"
+								placeholder="Ventilators"
+								v-model="items.ventilators"
+							/>
+						</div>
 					</div>
 
-					<div class="obj">
-						<img src="../theme/assets/icons/beds.svg" alt="" />
-						<input type="text" placeholder="Beds" v-model="items.beds" />
+					<div class="smlinp">
+						<span class="sub">Beds</span>
+						<div class="obj">
+							<img src="../theme/assets/icons/beds.svg" alt="" />
+							<input type="text" placeholder="Beds" v-model="items.beds" />
+						</div>
 					</div>
 
-					<div class="obj">
-						<img src="../theme/assets/icons/pulseoxi.svg" alt="" />
-						<input
-							type="text"
-							placeholder="Pulse Oximeters"
-							v-model="items.pulseOximeters"
-						/>
+					<div class="smlinp">
+						<span class="sub">Pulse Oximeters</span>
+						<div class="obj">
+							<img src="../theme/assets/icons/pulseoxi.svg" alt="" />
+							<input
+								type="text"
+								placeholder="Pulse Oximeters"
+								v-model="items.pulseOximeters"
+							/>
+						</div>
 					</div>
 
-					<div class="obj">
-						<img src="../theme/assets/icons/bpmonitor.svg" alt="" />
-						<input
-							type="text"
-							placeholder="BP Monitors"
-							v-model="items.bloodPressureMonitors"
-						/>
+					<div class="smlinp">
+						<span class="sub">BP Monitors</span>
+						<div class="obj">
+							<img src="../theme/assets/icons/bpmonitor.svg" alt="" />
+							<input
+								type="text"
+								placeholder="BP Monitors"
+								v-model="items.bloodPressureMonitors"
+							/>
+						</div>
 					</div>
 
-					<div class="obj">
-						<img src="../theme/assets/icons/masks.svg" alt="" />
-						<input type="text" placeholder="Masks" v-model="items.masks" />
+					<div class="smlinp">
+						<span class="sub">Masks</span>
+						<div class="obj">
+							<img src="../theme/assets/icons/masks.svg" alt="" />
+							<input type="text" placeholder="Masks" v-model="items.masks" />
+						</div>
 					</div>
 
-					<div class="obj">
-						<img src="../theme/assets/icons/gloves.svg" alt="" />
-						<input type="text" placeholder="Gloves" v-model="items.gloves" />
+					<div class="smlinp">
+						<span class="sub">Gloves</span>
+						<div class="obj">
+							<img src="../theme/assets/icons/gloves.svg" alt="" />
+							<input type="text" placeholder="Gloves" v-model="items.gloves" />
+						</div>
 					</div>
 				</div>
 
@@ -119,9 +173,9 @@
 
 				<br />
 
-				<button @click="updateData(false)" class="btn sign">
-					<span>Next</span>
-					<img src="../theme/assets/arrow.svg" alt="" />
+				<button @click.prevent="signOut" class="btn sign">
+					<img src="../theme/assets/logout.svg" alt="" />
+					<span>Logout</span>
 				</button>
 
 				<br /><br />
@@ -189,10 +243,6 @@ export default {
 		getData() {
 			UserService.specificHospital(firebase.auth().currentUser.email).then(
 				(response) => {
-					if (response.data[0].accountSet == 1) {
-						this.$router.push('/feed')
-					}
-
 					this.response = response.data[0]
 					this.capacity.current = this.response.capacity.current
 					this.capacity.maximum = this.response.capacity.total
@@ -252,6 +302,46 @@ export default {
 </script>
 
 <style scoped>
+.niceinp input {
+	all: initial;
+	font-size: 1.5em;
+	color: rgba(249, 202, 35, 1);
+	outline: none;
+	font-family: 'luf-semi';
+}
+.niceinp .sub {
+	font-size: 0.8em;
+}
+.niceinp {
+	border-radius: 0.75em;
+	background-color: rgba(249, 202, 35, 0.1);
+	border: solid 1px rgba(249, 202, 35, 1);
+	padding: 1em;
+}
+.smlinp .sub {
+	font-size: 1em;
+	margin-bottom: 0.2em;
+}
+.smlinp {
+	border-radius: 0.75em;
+	background-color: rgba(249, 202, 35, 0.1);
+	border: solid 1px rgba(249, 202, 35, 1);
+	padding: 1em;
+}
+.head {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-top: 3em;
+	margin-bottom: 2em;
+}
+.head h1 {
+	margin: 0;
+}
+.back {
+	margin: 0;
+	margin-right: 3em;
+}
 .logo {
 	width: 5em;
 	margin-top: 2em;
@@ -297,7 +387,7 @@ h1.med {
 .obj input {
 	all: initial;
 	width: 100%;
-	padding: 1em 0;
+	/* padding: 1em 0; */
 	font-family: 'luf-reg';
 	word-wrap: break-word;
 	font-size: 0.9em;
@@ -309,10 +399,11 @@ h1.med {
 }
 
 .obj {
-	background-color: rgba(249, 202, 35, 0.1);
+	/* background-color: rgba(249, 202, 35, 0.1);
 	border-radius: 0.75em;
 	margin-bottom: 0.5em;
-	border: solid 2px rgba(249, 202, 35, 0.2);
+	border: solid 2px rgba(249, 202, 35, 0.2); */
+	margin-top: 0.5em;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -323,7 +414,7 @@ h1.med {
 	width: 20px;
 	margin: 0;
 	margin-right: 10px;
-	margin-left: 10px;
+	/* margin-left: 10px; */
 }
 
 .btn {
@@ -343,8 +434,13 @@ h1.med {
 }
 
 .btn.sign {
-	background-color: #f9ca23;
-	color: #4a2c81;
+	background-color: rgba(255, 95, 95, 0.1);
+	color: rgba(255, 95, 95, 1);
+	border: solid 1px rgb(255, 95, 95);
+	justify-content: flex-start;
+}
+.btn.sign img {
+	margin-right: 2em;
 }
 
 .btn.meds {
@@ -352,7 +448,7 @@ h1.med {
 	color: rgba(249, 202, 35, 1);
 	width: 100%;
 	border: solid 1px rgba(249, 202, 35, 1);
-	margin-top: 0.5em;
+	margin-top: 1em;
 }
 
 .btnflex {

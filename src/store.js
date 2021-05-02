@@ -1,7 +1,11 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
+// import Vuex from 'vuex'
+import { createStore } from 'vuex'
+import createPersistedState from 'vuex-persistedstate'
 
-export default new Vuex.Store({
+// export default new Vuex.Store({
+export default createStore({
+	plugins: [createPersistedState()],
+
 	state: {
 		user: {
 			loggedIn: false,
@@ -29,7 +33,6 @@ export default new Vuex.Store({
 			commit('SET_LOGGED_IN', user !== null)
 			if (user) {
 				commit('SET_USER', {
-					displayName: user.displayName,
 					email: user.email
 				})
 			} else {

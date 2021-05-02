@@ -24,6 +24,30 @@ const routes = [
 		component: () => import('@/views/dashboard.vue')
 	},
 	{
+		path: '/setup',
+		component: () => import('@/views/setup.vue')
+	},
+	{
+		path: '/otherdata',
+		component: () => import('@/views/otherdata.vue')
+	},
+	{
+		path: '/feed',
+		component: () => import('@/views/feed.vue')
+	},
+	{
+		path: '/request',
+		component: () => import('@/views/request.vue')
+	},
+	{
+		path: '/notifs',
+		component: () => import('@/views/notifs.vue')
+	},
+	{
+		path: '/update',
+		component: () => import('@/views/update.vue')
+	},
+	{
 		path: '/tabs/',
 		component: Tabs,
 		children: [

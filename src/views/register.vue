@@ -11,14 +11,21 @@
 					v-model="form.name"
 				/>
 
-				<input type="name" placeholder="Phone" required v-model="form.phone" />
-
-				<br />
-
 				<input type="email" placeholder="Email" required v-model="form.email" />
 
 				<br />
 
+				<input type="text" placeholder="Phone" required v-model="form.phone" />
+
+				<br />
+
+				<input
+					type="text"
+					placeholder="Address"
+					required
+					v-model="form.address"
+				/>
+				<br />
 				<input
 					type="password"
 					placeholder="Password"
@@ -43,6 +50,7 @@
 <script>
 import firebase from 'firebase'
 import { IonPage } from '@ionic/vue'
+import UserService from '../services.js'
 
 export default {
 	name: 'Register',
@@ -56,21 +64,42 @@ export default {
 				email: '',
 				password: '',
 				phone: '',
+				address: '',
 			},
 			error: null,
+			response: null,
 		}
 	},
 	methods: {
+		extAPI() {
+			UserService.regUser({
+				name: this.form.name,
+				email: this.form.email,
+				address: this.form.address,
+				password: this.form.password,
+				phone: this.form.phone,
+			}).then(
+				(response) => {
+					this.response = response.data
+					console.log(response.data)
+					this.$router.push('/login')
+				},
+				(error) => {
+					this.error =
+						(error.response &&
+							error.response.data &&
+							error.response.data.message) ||
+						error.message ||
+						error.toString()
+				}
+			)
+		},
 		submit() {
 			firebase
 				.auth()
 				.createUserWithEmailAndPassword(this.form.email, this.form.password)
 				.then((data) => {
-					data.user
-						.updateProfile({
-							displayName: this.form.name,
-						})
-						.then(() => {})
+					this.extAPI()
 				})
 				.catch((err) => {
 					this.error = err.message
@@ -88,7 +117,7 @@ export default {
 .login {
 	font-size: 62px;
 	margin-bottom: 0.4em;
-	margin-top: 2em;
+	margin-top: 1.5em;
 }
 
 input {

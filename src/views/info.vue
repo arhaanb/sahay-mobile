@@ -1,9 +1,10 @@
 <template>
 	<ion-page>
 		<div class="container">
+			<img src="../theme/assets/ylogo.svg" alt="" class="logo">
 			<img class="info" src="../theme/assets/info.svg" alt="" />
 
-			<h1>Hospital management in one app</h1>
+			<h1 class="yellow">Hospital management in one app</h1>
 			<p>
 				Lorem ipsum dolor sit amet loda lassan arhaan sexy siddhayak super sexy
 				haha haha bruh good app.
@@ -32,6 +33,11 @@ export default {
 </script>
 
 <style scoped>
+.logo {
+	width: 5em;
+	margin-top: 2em;
+}
+
 .btn {
 	width: 50%;
 	text-align: left;
@@ -42,6 +48,12 @@ export default {
 	justify-content: space-between;
 	align-items: center;
 	border-radius: 0.75em;
+	margin-top: 4em;
+}
+
+.yellow {
+	color: #f9ca23;
+	font-family: 'luf-semi';
 }
 
 .btn img {
@@ -62,7 +74,8 @@ a {
 }
 
 img.info {
-	margin-top: 6em;
+	margin-top: 4em;
 	margin-bottom: 1em;
+	margin-left: 0.5em;
 }
 </style>

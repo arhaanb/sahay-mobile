@@ -27,7 +27,7 @@
 			</form>
 
 			<p class="thing">
-				<router-link to="/register" class="link"
+				<router-link to="/info" class="link"
 					>Or create a new account</router-link
 				>
 			</p>
@@ -38,6 +38,7 @@
 <script>
 import firebase from 'firebase'
 import { IonPage } from '@ionic/vue'
+import UserService from '../services.js'
 
 export default {
 	name: 'Login',
@@ -50,6 +51,7 @@ export default {
 				email: '',
 				password: '',
 			},
+			yo: false,
 			error: null,
 		}
 	},
@@ -65,6 +67,9 @@ export default {
 					this.error = err.message
 				})
 		},
+	},
+	mounted() {
+		// this.getData()
 	},
 }
 </script>

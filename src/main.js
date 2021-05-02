@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store.js'
 import Vuex from 'vuex'
+import axios from 'axios'
 
 import { IonicVue } from '@ionic/vue'
 
@@ -25,7 +26,7 @@ import './theme/global.css'
 // import '@ionic/vue/css/display.css'
 
 /* Theme variables */
-import './theme/variables.css'
+// import './theme/variables.css'
 
 // Firebase
 import { firebase } from '@firebase/app'
@@ -42,9 +43,11 @@ var firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig)
 
-firebase.auth().onAuthStateChanged(user => {
+firebase.auth().onAuthStateChanged(async user => {
 	store.dispatch('fetchUser', user)
 })
+
+axios.defaults.baseURL = 'https://localhost:5000'
 
 const app = createApp(App)
 	.use(IonicVue)

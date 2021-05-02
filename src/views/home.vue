@@ -1,6 +1,7 @@
 <template>
 	<ion-page>
 		<div class="container">
+			<img src="../theme/assets/ylogo.svg" alt="" class="logo" />
 			<h1 class="sahay">Sahay</h1>
 
 			<router-link to="/login">
@@ -35,6 +36,10 @@ export default {
 <style scoped>
 .sahay {
 	font-family: 'luf-bold' !important;
+	color: #f9ca23;
+	font-size: 4em;
+	margin-bottom: 0.75em;
+	margin-top: 0.2em;
 }
 
 .btn {
@@ -47,6 +52,11 @@ export default {
 	justify-content: space-between;
 	align-items: center;
 	border-radius: 0.75em;
+}
+
+.logo {
+	width: 7em;
+	margin-top: 17em;
 }
 
 .btn img {

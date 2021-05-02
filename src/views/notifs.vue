@@ -1,0 +1,257 @@
+<template>
+	<ion-page>
+		<ion-content>
+			<div class="container">
+<div class="head">
+					<router-link to="/feed" class="back">
+						<img src="../theme/assets/icons/back.svg" alt="" />
+					</router-link>
+					<h1 class="med yellow title">Notifications</h1>
+				</div>
+			</div>
+			<div class="hundred">
+				<img src="../theme/assets/not.png" alt="" />
+			</div>
+		</ion-content>
+	</ion-page>
+</template>
+
+<script>
+import { IonPage, IonContent } from '@ionic/vue'
+import firebase from 'firebase'
+import UserService from '../services.js'
+const userData = firebase.auth().currentUser
+
+export default {
+	name: 'Dashboard',
+	components: {
+		IonPage,
+		IonContent,
+	},
+	data() {
+		return {
+			bropls: userData,
+			user: null,
+			response: null,
+			requests: null,
+			error: null,
+			load: true,
+			setup: null,
+			capacity: { current: '', maximum: '' },
+			setup: null,
+		}
+	},
+	created: function () {
+		this.user = firebase.auth().currentUser
+		console.log(firebase.auth().currentUser.email)
+
+		if (!firebase.auth().currentUser) {
+			this.$router.push('/login')
+		}
+		this.getData()
+		this.getAllRequests()
+	},
+	methods: {
+		signOut() {
+			firebase
+				.auth()
+				.signOut()
+				.then(() => {
+					this.$router.push('/login')
+				})
+		},
+		getData() {
+			UserService.specificHospital(firebase.auth().currentUser.email).then(
+				(response) => {
+					if (response.data[0].accountSet == 0) {
+						this.setup = false
+					} else {
+						this.setup = true
+					}
+					this.response = response.data[0]
+
+					console.log(response.data[0])
+				},
+				(error) => {
+					this.error =
+						(error.response &&
+							error.response.data &&
+							error.response.data.message) ||
+						error.message ||
+						error.toString()
+				}
+			)
+		},
+		getAllRequests() {
+			UserService.getAllRequests().then(
+				(response) => {
+					this.requests = response.data
+				},
+				(error) => {
+					this.error =
+						(error.response &&
+							error.response.data &&
+							error.response.data.message) ||
+						error.message ||
+						error.toString()
+				}
+			)
+		},
+	},
+}
+</script>
+
+<style scoped>
+.hello {
+	color: #f9ca23;
+	font-size: 1.75em;
+	margin-bottom: 0.5em;
+}
+
+.pls {
+	margin-bottom: 1.5em;
+	font-size: 1.3em;
+	margin-top: 0;
+}
+.head {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	margin-top: 3em;
+	margin-bottom: 0.5em;
+}
+.head h1 {
+	margin: 0;
+}
+.back {
+	margin: 0;
+	margin-right: 3em;
+}
+.notif {
+	width: 2em;
+}
+.logo {
+	width: 5em;
+}
+
+h1.med {
+	text-transform: capitalize;
+}
+
+.grid {
+	display: grid;
+	grid-gap: 1em;
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.obj input {
+	all: initial;
+	width: 100%;
+	padding: 1em 0;
+	font-family: 'luf-reg';
+	word-wrap: break-word;
+	font-size: 0.9em;
+	color: #fff;
+}
+
+.obj input::placeholder {
+	word-wrap: break-word;
+}
+
+.obj {
+	background-color: rgba(249, 202, 35, 0.1);
+	border-radius: 0.75em;
+	margin-bottom: 0.5em;
+	border: solid 2px rgba(249, 202, 35, 0.2);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 1em 0 0;
+}
+
+.obj img {
+	width: 20px;
+	margin: 0;
+	margin-right: 10px;
+	margin-left: 10px;
+}
+
+.btn {
+	width: 50%;
+	text-align: left;
+	padding: 0.8em 1em;
+	font-size: 1em;
+	margin-bottom: 1em;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 0.75em;
+}
+
+.requestbtn {
+	width: 100%;
+	text-align: left;
+	padding: 0.8em 1.5em;
+	font-size: 1em;
+	margin-bottom: 2em;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 0.75em;
+	background-color: rgba(249, 202, 35, 1);
+	color: #4a2c81;
+}
+
+.requestbtn .reqimg {
+	width: 2em;
+}
+
+.arrow {
+	width: 1.35em;
+}
+
+.requestbtn span {
+	font-family: 'luf-semi';
+	margin-left: -1.5em;
+	font-size: 1.2em;
+}
+
+.btn img {
+	width: 1.5em;
+}
+
+.btn.sign {
+	background-color: #f9ca23;
+	color: #4a2c81;
+}
+
+.btn.meds {
+	background-color: rgba(249, 202, 35, 0.1);
+	color: rgba(249, 202, 35, 1);
+	width: 100%;
+	border: solid 1px rgba(249, 202, 35, 1);
+	margin-top: 0.5em;
+}
+
+.btnflex {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.btnflex span {
+	word-wrap: break-word;
+}
+
+.btnflex img {
+	margin-right: 1.25em;
+}
+
+.btn span {
+	font-family: 'luf-semi' !important;
+}
+
+a {
+	text-decoration: none;
+}
+</style>

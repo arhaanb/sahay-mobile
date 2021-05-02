@@ -36,7 +36,38 @@ body {
 	background-color: #4A2C81 !important;
 }
 
+ion-content {
+	--background: #4A2C81 !important;
+	--color: #fff;
+}
+
 .container {
 	padding: 0 2em;
 	width: 100%;
+}
+
+.hundred {
+	padding: 0;
+	width: 100%;
+}
+
+input, textarea {
+	width: 100%;
+	padding: 1.4em 1em;
+	background-color: rgba(249, 202, 35, 0.1);
+	border-radius: 0.75em;
+	margin-bottom: 0.5em;
+	border: solid 2px rgba(249, 202, 35, 0);
+}
+
+input:focus, textarea:focus {
+	border: solid 2px rgba(249, 202, 35, 0.8);
+}
+
+input::placeholder, textarea::placeholder {
+	color: rgba(249, 202, 35, 0.4);
+}
+
+.yellow {
+	color: rgba(249, 202, 35, 1);
 }
