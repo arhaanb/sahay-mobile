@@ -1,13 +1,13 @@
 <template>
 	<ion-page>
 		<div class="container">
-			<img src="../theme/assets/ylogo.svg" alt="" class="logo">
+			<img src="../theme/assets/ylogo.svg" alt="" class="logo" />
 			<img class="info" src="../theme/assets/info.svg" alt="" />
 
 			<h1 class="yellow">Hospital management in one app</h1>
 			<p>
-				Lorem ipsum dolor sit amet loda lassan arhaan sexy siddhayak super sexy
-				haha haha bruh good app.
+				Effortlessly sign your hospital up to a modern, simple management and
+				resource sharing app.
 			</p>
 
 			<router-link to="/register">
