@@ -97,6 +97,8 @@ export default {
 		if (!firebase.auth().currentUser) {
 			this.$router.push('/login')
 		}
+	},
+	mounted() {
 		this.getData()
 	},
 	methods: {
@@ -124,6 +126,7 @@ export default {
 						this.hasReqs = true
 					}
 					this.response = response.data[0]
+					this.response.requests.reverse()
 
 					console.log(response.data[0])
 				},
@@ -148,8 +151,12 @@ export default {
 			).then(
 				(response) => {
 					console.log(response.data)
-					// if (response.data == 'Account details set.') {
-					// }
+					if (response.data == 'Global request sent successfully.') {
+						this.req.description = ''
+						this.req.need = ''
+						this.req.urgent = ''
+						this.$router.push('/feed')
+					}
 				},
 				(error) => {
 					this.error =

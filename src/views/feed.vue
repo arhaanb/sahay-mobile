@@ -11,7 +11,7 @@
 				<h1 class="med hello" v-if="response">Hello, {{ response.name }}</h1>
 				<router-link class="white" to="/update">
 					<p class="pls">Update hospital details</p>
-					<img src="../theme/assets/yellow-arr.svg" alt="">
+					<img src="../theme/assets/yellow-arr.svg" alt="" />
 				</router-link>
 
 				<router-link to="/request">
@@ -29,6 +29,8 @@
 				<h2 class="med yellow hospitals">Hospitals</h2>
 				<p class="hospp">See what hospitals nearby need/have to offer</p>
 
+				{{ yuh }}
+
 				<div v-if="requests">
 					<div v-for="req in requests" :key="req">
 						<div class="cardreq">
@@ -40,7 +42,12 @@
 								<div class="circle"></div>
 								<span>Urgent</span>
 							</div>
-							<button @click="$router.push(`/contact?email=${req.user.email}`)" class="contactbtn">Contact</button>
+							<button
+								@click="$router.push(`/contact?email=${req.user.email}`)"
+								class="contactbtn"
+							>
+								Contact
+							</button>
 						</div>
 					</div>
 				</div>
@@ -60,7 +67,7 @@
 </template>
 
 <script>
-import { IonPage, IonContent } from '@ionic/vue'
+import { IonPage, IonContent, onIonViewDidEnter } from '@ionic/vue'
 import firebase from 'firebase'
 import UserService from '../services.js'
 const userData = firebase.auth().currentUser
@@ -92,7 +99,9 @@ export default {
 			this.$router.push('/login')
 		}
 		this.getData()
-		this.getAllRequests()
+	},
+	updated() {
+		this.getRequests()
 	},
 	methods: {
 		signOut() {
@@ -107,12 +116,10 @@ export default {
 			UserService.specificHospital(firebase.auth().currentUser.email).then(
 				(response) => {
 					if (response.data[0].accountSet == 0) {
-						this.setup = false
-					} else {
-						this.setup = true
+						this.$router.push('/dashboard')
 					}
-					this.response = response.data[0]
 
+					this.response = response.data[0]
 					console.log(response.data[0])
 				},
 				(error) => {
@@ -125,7 +132,7 @@ export default {
 				}
 			)
 		},
-		getAllRequests() {
+		getRequests() {
 			UserService.getAllRequests().then(
 				(response) => {
 					this.requests = response.data
@@ -191,7 +198,7 @@ export default {
 	border-bottom: 2px solid rgba(255, 255, 255, 0.267);
 }
 .white img {
-width: 1.5em;
+	width: 1.5em;
 }
 .contactbtn {
 	background-color: rgba(249, 202, 35, 1);

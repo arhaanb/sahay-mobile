@@ -1,1 +1,6 @@
-{}
+{
+	"appId": "com.arhaanb.sahay",
+	"appName": "Sahay",
+	"webDir": "www",
+	"npmClient": "yarn"
+}

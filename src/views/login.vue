@@ -38,7 +38,6 @@
 <script>
 import firebase from 'firebase'
 import { IonPage } from '@ionic/vue'
-import UserService from '../services.js'
 
 export default {
 	name: 'Login',
@@ -61,7 +60,7 @@ export default {
 				.auth()
 				.signInWithEmailAndPassword(this.form.email, this.form.password)
 				.then((data) => {
-					this.$router.push('/dashboard')
+					this.$router.push('/feed')
 				})
 				.catch((err) => {
 					this.error = err.message
