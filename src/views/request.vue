@@ -98,7 +98,7 @@ export default {
 			this.$router.push('/login')
 		}
 	},
-	mounted() {
+	updated() {
 		this.getData()
 	},
 	methods: {

@@ -58,6 +58,7 @@ input, textarea {
 	border-radius: 0.75em;
 	margin-bottom: 0.5em;
 	border: solid 2px rgba(249, 202, 35, 0);
+	color: #fff;
 }
 
 input:focus, textarea:focus {
@@ -70,4 +71,8 @@ input::placeholder, textarea::placeholder {
 
 .yellow {
 	color: rgba(249, 202, 35, 1);
+}
+
+.white {
+	color: #fff !important;
 }

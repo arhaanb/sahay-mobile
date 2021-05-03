@@ -5,7 +5,7 @@
 			<img class="info" src="../theme/assets/info.svg" alt="" />
 
 			<h1 class="yellow">Hospital management in one app</h1>
-			<p>
+			<p class="white">
 				Effortlessly sign your hospital up to a modern, simple management and
 				resource sharing app.
 			</p>

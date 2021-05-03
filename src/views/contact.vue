@@ -70,6 +70,8 @@ export default {
 		if (!firebase.auth().currentUser) {
 			this.$router.push('/login')
 		}
+	},
+	updated() {
 		this.getData()
 	},
 	methods: {

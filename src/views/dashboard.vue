@@ -125,8 +125,6 @@
 				</button>
 
 				<br /><br />
-
-				<!-- <a class="nav-link" @click.prevent="signOut">Sign out</a> -->
 			</div>
 		</ion-content>
 	</ion-page>

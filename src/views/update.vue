@@ -3,9 +3,9 @@
 		<ion-content>
 			<div class="container">
 				<div class="head">
-					<router-link to="/feed" class="back">
+					<div @click="updateData(false)" class="back">
 						<img src="../theme/assets/icons/back.svg" alt="" />
-					</router-link>
+					</div>
 					<h1 class="med yellow title">Edit details</h1>
 				</div>
 				<br />
@@ -179,8 +179,6 @@
 				</button>
 
 				<br /><br />
-
-				<!-- <a class="nav-link" @click.prevent="signOut">Sign out</a> -->
 			</div>
 		</ion-content>
 	</ion-page>
@@ -229,17 +227,11 @@ export default {
 		if (!firebase.auth().currentUser) {
 			this.$router.push('/login')
 		}
+	},
+	updated() {
 		this.getData()
 	},
 	methods: {
-		signOut() {
-			firebase
-				.auth()
-				.signOut()
-				.then(() => {
-					this.$router.push('/login')
-				})
-		},
 		getData() {
 			UserService.specificHospital(firebase.auth().currentUser.email).then(
 				(response) => {
@@ -305,7 +297,7 @@ export default {
 .niceinp input {
 	all: initial;
 	font-size: 1.5em;
-	color: rgba(249, 202, 35, 1);
+	color: rgba(249, 202, 35, 1) !important;
 	outline: none;
 	font-family: 'luf-semi';
 }
