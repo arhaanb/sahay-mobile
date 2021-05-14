@@ -39,6 +39,9 @@
 
 				<section v-if="hasReqs">
 					<h2 class="yellow med">Existing requests</h2>
+					<p class="white subtext" style="margin-bottom: 1.5em">
+						Select a request to verify delivered items.
+					</p>
 					<div v-for="r in response.requests" :key="r">
 						<div class="cardreq">
 							<h3 class="yellow med" style="text-transform: capitalize">
@@ -55,6 +58,7 @@
 				</section>
 
 				<br />
+				<br />
 			</div>
 		</ion-content>
 	</ion-page>
@@ -70,7 +74,7 @@ export default {
 	name: 'Dashboard',
 	components: {
 		IonPage,
-		IonContent,
+		IonContent
 	},
 	data() {
 		return {
@@ -86,11 +90,11 @@ export default {
 			req: {
 				description: '',
 				need: '',
-				urgent: false,
-			},
+				urgent: false
+			}
 		}
 	},
-	created: function () {
+	created: function() {
 		this.user = firebase.auth().currentUser
 		console.log(firebase.auth().currentUser.email)
 
@@ -112,7 +116,7 @@ export default {
 		},
 		getData() {
 			UserService.specificHospital(firebase.auth().currentUser.email).then(
-				(response) => {
+				response => {
 					if (response.data[0].accountSet == 0) {
 						this.setup = false
 					} else {
@@ -130,7 +134,7 @@ export default {
 
 					console.log(response.data[0])
 				},
-				(error) => {
+				error => {
 					this.error =
 						(error.response &&
 							error.response.data &&
@@ -145,20 +149,20 @@ export default {
 				{
 					urgent: this.req.urgent,
 					description: this.req.description,
-					need: this.req.need,
+					need: this.req.need
 				},
 				firebase.auth().currentUser.email
 			).then(
-				(response) => {
+				response => {
 					console.log(response.data)
 					if (response.data == 'Global request sent successfully.') {
 						this.req.description = ''
 						this.req.need = ''
 						this.req.urgent = ''
-						this.$router.push('/feed')
+						this.$router.push('/success/request')
 					}
 				},
-				(error) => {
+				error => {
 					this.error =
 						(error.response &&
 							error.response.data &&
@@ -167,8 +171,8 @@ export default {
 						error.toString()
 				}
 			)
-		},
-	},
+		}
+	}
 }
 </script>
 

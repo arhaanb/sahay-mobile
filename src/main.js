@@ -3,7 +3,7 @@ import App from './App.vue'
 import router from './router'
 import store from './store.js'
 import Vuex from 'vuex'
-import axios from 'axios'
+import { defineCustomElements } from '@ionic/pwa-elements/loader'
 
 import { IonicVue } from '@ionic/vue'
 
@@ -47,13 +47,12 @@ firebase.auth().onAuthStateChanged(async user => {
 	store.dispatch('fetchUser', user)
 })
 
-axios.defaults.baseURL = 'https://localhost:5000'
-
 const app = createApp(App)
 	.use(IonicVue)
 	.use(router)
 	.use(Vuex)
 	.use(store)
+defineCustomElements(window)
 
 router.isReady().then(() => {
 	app.mount('#app')

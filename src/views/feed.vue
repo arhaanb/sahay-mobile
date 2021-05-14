@@ -14,6 +14,7 @@
 					<img src="../theme/assets/yellow-arr.svg" alt="" />
 				</router-link>
 
+				<!-- <router-link to="/camera">Camera</router-link> -->
 				<router-link to="/request">
 					<button class="requestbtn">
 						<img
@@ -21,7 +22,7 @@
 							alt=""
 							class="reqimg"
 						/>
-						<span>Create a request</span>
+						<span>Your requests</span>
 						<img src="../theme/assets/arrow.svg" alt="" class="arrow" />
 					</button>
 				</router-link>

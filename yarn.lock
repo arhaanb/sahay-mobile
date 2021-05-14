@@ -345,6 +345,13 @@
     cssnano-preset-default "^4.0.0"
     postcss "^7.0.0"
 
+"@ionic-native/camera@^5.33.0":
+  version "5.33.0"
+  resolved "https://registry.yarnpkg.com/@ionic-native/camera/-/camera-5.33.0.tgz#9665ec56e7e59c463cc06d182985af9dc2504818"
+  integrity sha512-cLAxM4e8IrTECvlszyUe9FnUjE4PbWR99NNDwkOuB85yJ3diyKxiQhHu89Qh9A6qzHTJQLa93iknY2Q40VM/5Q==
+  dependencies:
+    "@types/cordova" latest
+
 "@ionic/core@5.6.6":
   version "5.6.6"
   resolved "https://registry.yarnpkg.com/@ionic/core/-/core-5.6.6.tgz#6392fdececca8c955c2309d05dfff8c467d8dc0b"
@@ -353,6 +360,11 @@
     "@stencil/core" "^2.4.0"
     ionicons "^5.5.1"
     tslib "^2.1.0"
+
+"@ionic/pwa-elements@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@ionic/pwa-elements/-/pwa-elements-3.0.2.tgz#caca76f816d4b478f1751e75698197d5d88f545b"
+  integrity sha512-Wwb8/NgzeX1GA8MDPvcis7nx1vqtWdEaDz3t0tTbtUduR/oCNkWZkY2PFL49ET0+/lRhcqE2jZwXvTVn0R1UGw==
 
 "@ionic/vue-router@^5.4.0":
   version "5.6.6"
@@ -480,6 +492,11 @@
   integrity sha512-ePPA/JuI+X0vb+gSWlPKOY0NdNAie/rPUqX2GUPpbZwiKTkSPhjXWuee47E4MtE54QVzGCQMQkAL6JhV2E1+cQ==
   dependencies:
     "@types/node" "*"
+
+"@types/cordova@latest":
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/@types/cordova/-/cordova-0.0.34.tgz#ea7addf74ecec3d7629827a0c39e2c9addc73d04"
+  integrity sha1-6nrd907Ow9dimCegw54smt3HPQQ=
 
 "@types/express-serve-static-core@*", "@types/express-serve-static-core@^4.17.18":
   version "4.17.19"
@@ -2075,6 +2092,11 @@ copy-webpack-plugin@^5.1.1:
     schema-utils "^1.0.0"
     serialize-javascript "^4.0.0"
     webpack-log "^2.0.0"
+
+cordova-plugin-camera@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/cordova-plugin-camera/-/cordova-plugin-camera-5.0.1.tgz#9e0e94a7d29b15e6708f186bf9e59a28fcc0ee53"
+  integrity sha512-9gXyZvI8u9KzsZuqmB8Yw+uheF+7f+usMAwvOMw7L7pqbykg+bm9US5zjhJbwit3A1cSblgZkpBafe5cFiMcTA==
 
 core-js@3.6.5:
   version "3.6.5"
