@@ -99,7 +99,7 @@ export default {
 	},
 	created: function() {
 		this.user = firebase.auth().currentUser
-		console.log(firebase.auth().currentUser.email)
+		// console.log(firebase.auth().currentUser.email)
 
 		if (!firebase.auth().currentUser) {
 			this.$router.push('/login')
@@ -135,7 +135,7 @@ export default {
 					this.response = response.data[0]
 					this.response.requests.reverse()
 
-					console.log(response.data[0])
+					// console.log(response.data[0])
 				},
 				error => {
 					this.error =
@@ -148,32 +148,36 @@ export default {
 			)
 		},
 		sendRequest() {
-			UserService.createRequest(
-				{
-					urgent: this.req.urgent,
-					description: this.req.description,
-					need: this.req.need
-				},
-				firebase.auth().currentUser.email
-			).then(
-				response => {
-					console.log(response.data)
-					if (response.data == 'Global request sent successfully.') {
-						this.req.description = ''
-						this.req.need = ''
-						this.req.urgent = ''
-						this.$router.push('/success/request')
+			if (this.req.description != '' && this.req.need != '') {
+				UserService.createRequest(
+					{
+						urgent: this.req.urgent,
+						description: this.req.description,
+						need: this.req.need
+					},
+					firebase.auth().currentUser.email
+				).then(
+					response => {
+						// console.log(response.data)
+						if (response.data == 'Global request sent successfully.') {
+							this.req.description = ''
+							this.req.need = ''
+							this.req.urgent = ''
+							this.$router.push('/success/request')
+						}
+					},
+					error => {
+						this.error =
+							(error.response &&
+								error.response.data &&
+								error.response.data.message) ||
+							error.message ||
+							error.toString()
 					}
-				},
-				error => {
-					this.error =
-						(error.response &&
-							error.response.data &&
-							error.response.data.message) ||
-						error.message ||
-						error.toString()
-				}
-			)
+				)
+			} else {
+				console.log('Request data is empty.')
+			}
 		},
 		verifyPage(userid, requestid) {
 			this.$router.push(`/verify?userid=${userid}&reqid=${requestid}`)

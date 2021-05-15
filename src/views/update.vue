@@ -222,7 +222,7 @@ export default {
 	},
 	created: function () {
 		this.user = firebase.auth().currentUser
-		console.log(firebase.auth().currentUser.email)
+		// console.log(firebase.auth().currentUser.email)
 
 		if (!firebase.auth().currentUser) {
 			this.$router.push('/login')
@@ -250,7 +250,7 @@ export default {
 					this.items.bloodPressureMonitors = this.response.items.bloodPressureMonitors
 					this.items.heartRateMonitors = this.response.items.heartRateMonitors
 
-					console.log(response.data[0])
+					// console.log(response.data[0])
 				},
 				(error) => {
 					this.error =

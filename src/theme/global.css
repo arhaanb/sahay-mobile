@@ -1,26 +1,26 @@
 @font-face {
-	font-family: "luf-bold";
-	src: url("./assets/Lufga-Bold.otf");
+	font-family: 'luf-bold';
+	src: url('./assets/Lufga-Bold.otf');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: "luf-reg";
-	src: url("./assets/Lufga-Regular.otf");
+	font-family: 'luf-reg';
+	src: url('./assets/Lufga-Regular.otf');
 	font-weight: normal;
 	font-style: normal;
 }
 
 @font-face {
-	font-family: "luf-semi";
-	src: url("./assets/Lufga-SemiBold.otf");
+	font-family: 'luf-semi';
+	src: url('./assets/Lufga-SemiBold.otf');
 	font-weight: normal;
 	font-style: normal;
 }
 
 *, body {
-	font-family: "luf-reg";
+	font-family: 'luf-reg';
 	outline: none;
 }
 
@@ -33,11 +33,11 @@ strong {
 }
 
 body {
-	background-color: #4A2C81 !important;
+	background-color: #4a2c81 !important;
 }
 
 ion-content {
-	--background: #4A2C81 !important;
+	--background: #4a2c81 !important;
 	--color: #fff;
 }
 

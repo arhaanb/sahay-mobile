@@ -65,7 +65,6 @@ export default {
 	},
 	created: function () {
 		this.user = firebase.auth().currentUser
-		console.log(firebase.auth().currentUser.email)
 
 		if (!firebase.auth().currentUser) {
 			this.$router.push('/login')
@@ -88,7 +87,7 @@ export default {
 				(response) => {
 					this.response = response.data[0]
 
-					console.log(response.data[0])
+					// console.log(response.data[0])
 				},
 				(error) => {
 					this.error =
@@ -110,7 +109,7 @@ export default {
 				firebase.auth().currentUser.email
 			).then(
 				(response) => {
-					console.log(response.data)
+					// console.log(response.data)
 					// if (response.data == 'Account details set.') {
 					// }
 				},

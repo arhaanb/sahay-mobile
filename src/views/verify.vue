@@ -6,19 +6,18 @@
 					<router-link to="/request" class="back">
 						<img src="../theme/assets/icons/back.svg" alt="" />
 					</router-link>
-					<h1 class="med yellow title">Verify Request</h1>
+					<h1 class="med yellow title">Validate request</h1>
 				</div>
 
-				<div class="flex-center">
-					<br /><br /><br />
-					<button @click="takePhoto()">
-						<ion-icon :icon="camera"></ion-icon>
-					</button>
-					<br /><br />
-					<h3 class="scan">
-						Scan the QR code received with your goods to verify your request.
-					</h3>
-				</div>
+				<p class="white scan">
+					Validate the order if you’ve received the supplies by scanning the QR
+					code on the package.
+				</p>
+
+				<button @click="cameraFunction()">
+					<span class="med">Scan QR</span>
+					<img src="../theme/assets/icons/qr.svg" alt="" />
+				</button>
 			</div>
 		</ion-content>
 	</ion-page>
@@ -28,43 +27,27 @@
 import { camera, trash, close } from 'ionicons/icons'
 import { usePhotoGallery, Photo } from '@/usePhotoGallery'
 
-import {
-	IonPage,
-	IonHeader,
-	IonFab,
-	IonFabButton,
-	IonIcon,
-	IonToolbar,
-	IonTitle,
-	IonContent,
-	IonGrid,
-	IonRow,
-	IonCol,
-	IonImg
-} from '@ionic/vue'
+import { IonPage, IonIcon, IonContent } from '@ionic/vue'
 
 export default {
 	name: 'Tab2',
 	components: {
 		IonPage,
-		IonHeader,
-		IonFab,
-		IonFabButton,
 		IonIcon,
-		IonToolbar,
-		IonTitle,
-		IonContent,
-		IonGrid,
-		IonRow,
-		IonCol,
-		IonImg
+		IonContent
 	},
 	setup() {
 		const { photos, takePhoto } = usePhotoGallery()
 
+		const cameraFunction = async () => {
+			const bro = await takePhoto()
+			console.log(bro)
+		}
+
 		return {
 			photos,
 			takePhoto,
+			cameraFunction,
 			camera,
 			trash,
 			close
@@ -90,12 +73,19 @@ export default {
 }
 
 button {
-	font-size: 3em;
-	padding: 1em;
-	border-radius: 0.5em;
-	width: 100%;
-	background-color: rgba(249, 202, 35, 0.1);
-	border: solid 1px rgba(249, 202, 35, 1);
+	border-radius: 0.75em;
+	color: #4a2c81;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-family: 'luf-semi' !important;
+	background-color: rgba(249, 202, 35, 1);
+	width: 50%;
+	padding: 1em 1.25em;
+}
+
+button span {
+	font-size: 1.3em;
 }
 
 .flex-center {
@@ -105,7 +95,7 @@ button {
 	flex-direction: column;
 }
 .scan {
-	font-size: 1.2em;
-	width: 80%;
+	font-size: 1.3em;
+	margin-bottom: 2em;
 }
 </style>

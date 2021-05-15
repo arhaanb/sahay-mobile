@@ -30,8 +30,6 @@
 				<h2 class="med yellow hospitals">Hospitals</h2>
 				<p class="hospp">See what hospitals nearby need/have to offer</p>
 
-				{{ yuh }}
-
 				<div v-if="requests">
 					<div v-for="req in requests" :key="req">
 						<div class="cardreq">
@@ -77,7 +75,7 @@ export default {
 	name: 'Dashboard',
 	components: {
 		IonPage,
-		IonContent,
+		IonContent
 	},
 	data() {
 		return {
@@ -89,12 +87,11 @@ export default {
 			load: true,
 			setup: null,
 			capacity: { current: '', maximum: '' },
-			setup: null,
+			setup: null
 		}
 	},
-	created: function () {
+	created: function() {
 		this.user = firebase.auth().currentUser
-		console.log(firebase.auth().currentUser.email)
 
 		if (!firebase.auth().currentUser) {
 			this.$router.push('/login')
@@ -115,15 +112,15 @@ export default {
 		},
 		getData() {
 			UserService.specificHospital(firebase.auth().currentUser.email).then(
-				(response) => {
+				response => {
 					if (response.data[0].accountSet == 0) {
 						this.$router.push('/dashboard')
 					}
 
 					this.response = response.data[0]
-					console.log(response.data[0])
+					// console.log(response.data[0])
 				},
-				(error) => {
+				error => {
 					this.error =
 						(error.response &&
 							error.response.data &&
@@ -135,11 +132,11 @@ export default {
 		},
 		getRequests() {
 			UserService.getAllRequests().then(
-				(response) => {
+				response => {
 					this.requests = response.data
 					this.requests.reverse()
 				},
-				(error) => {
+				error => {
 					this.error =
 						(error.response &&
 							error.response.data &&
@@ -148,8 +145,8 @@ export default {
 						error.toString()
 				}
 			)
-		},
-	},
+		}
+	}
 }
 </script>
 

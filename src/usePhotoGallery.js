@@ -50,6 +50,8 @@ export function usePhotoGallery() {
 		const savedFileImage = await savePicture(cameraPhoto, fileName)
 
 		photos.value = [savedFileImage, ...photos.value]
+
+		return { msg: 'Function to take photo was initialized.' }
 	}
 
 	return {
