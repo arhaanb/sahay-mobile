@@ -27,6 +27,7 @@
 		"cordova-plugin-camera": "^5.0.1",
 		"core-js": "^3.6.5",
 		"firebase": "^8.4.3",
+		"jetifier": "^2.0.0",
 		"vue": "^3.0.0-0",
 		"vue-router": "^4.0.0-0",
 		"vuex": "^4.0.0",
