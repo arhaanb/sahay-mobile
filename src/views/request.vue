@@ -45,6 +45,7 @@
 					<div v-for="r in response.requests" :key="r">
 						<div
 							class="cardreq"
+							v-if="!r.complete"
 							@click.prevent="verifyPage(response._id, r._id)"
 						>
 							<h3 class="yellow med" style="text-transform: capitalize">

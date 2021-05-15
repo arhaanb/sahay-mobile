@@ -72,6 +72,12 @@ class UserService {
 	specificHospital(id) {
 		return axios.get(`${API_URL}/user`, { headers: { email: id } })
 	}
+
+	completeRequest(userid, requestid) {
+		return axios.get(
+			`${API_URL}/del-request?userid=${userid}&requestid=${requestid}`
+		)
+	}
 }
 
 export default new UserService()
