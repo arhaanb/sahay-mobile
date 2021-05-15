@@ -34,10 +34,11 @@
 						<img src="../theme/assets/plusbtn.svg" alt="" />
 					</div>
 				</div>
-				<div v-for="p in plasma" :key="p">
+				<div v-for="(p, index) in plasma" :key="p">
 					<div class="grid">
-						<h1 class="yellow med">{{ p.group }}</h1>
+						<p class="yellow med">{{ p.group }}</p>
 						<p>{{ p.units }} Units</p>
+						<p @click="removePlasma(index)" class="minus">&mdash;</p>
 					</div>
 				</div>
 
@@ -64,10 +65,11 @@
 						<img src="../theme/assets/plusbtn.svg" alt="" />
 					</div>
 				</div>
-				<div v-for="p in blood" :key="p">
+				<div v-for="(p, index) in blood" :key="p">
 					<div class="grid" v-if="p.group && p.units">
-						<h1 class="yellow med">{{ p.group }}</h1>
+						<p class="yellow med">{{ p.group }}</p>
 						<p>{{ p.units }} Units</p>
+						<p @click="removeBlood(index)" class="minus">&mdash;</p>
 					</div>
 				</div>
 
@@ -88,10 +90,11 @@
 						<img src="../theme/assets/plusbtn.svg" alt="" />
 					</div>
 				</div>
-				<div v-for="p in medicines" :key="p">
+				<div v-for="(p, index) in medicines" :key="p">
 					<div class="grid" v-if="p.medName && p.units">
-						<h1 class="yellow med">{{ p.medName }}</h1>
+						<p class="yellow med">{{ p.medName }}</p>
 						<p>{{ p.units }} Units</p>
+						<p @click="removeMedicines(index)" class="minus">&mdash;</p>
 					</div>
 				</div>
 
@@ -112,7 +115,7 @@ export default {
 	name: 'Dashboard',
 	components: {
 		IonPage,
-		IonContent,
+		IonContent
 	},
 
 	data() {
@@ -127,10 +130,10 @@ export default {
 			medicines: [],
 			selplasma: { group: '', units: '' },
 			selblood: { group: '', units: '' },
-			selmedicines: { medName: '', units: '' },
+			selmedicines: { medName: '', units: '' }
 		}
 	},
-	created: async function () {
+	created: async function() {
 		this.user = this.$store.getters.user
 
 		if (!this.$store.getters.user) {
@@ -141,14 +144,14 @@ export default {
 	methods: {
 		getData() {
 			UserService.specificHospital(this.bruh.email).then(
-				(response) => {
+				response => {
 					this.response = response.data[0]
 					this.plasma = this.response.plasma
 					this.blood = this.response.blood
 					this.medicines = this.response.medicines
 					console.log(response.data[0])
 				},
-				(error) => {
+				error => {
 					this.error =
 						(error.response &&
 							error.response.data &&
@@ -164,13 +167,13 @@ export default {
 				{ blood: this.blood, plasma: this.plasma, medicines: this.medicines },
 				firebase.auth().currentUser.email
 			).then(
-				(response) => {
+				response => {
 					if (response.data == 'Account details set.') {
 						console.log('gg')
-						this.$router.push('/feed')
+						this.$router.push('/update')
 					}
 				},
-				(error) => {
+				error => {
 					this.error =
 						(error.response &&
 							error.response.data &&
@@ -198,12 +201,21 @@ export default {
 				this.selmedicines = { medName: '', units: '' }
 			}
 		},
-	},
+		removePlasma(index) {
+			this.plasma.splice(index, 1)
+		},
+		removeBlood(index) {
+			this.blood.splice(index, 1)
+		},
+		removeMedicines(index) {
+			this.medicines.splice(index, 1)
+		}
+	}
 }
 </script>
 
 <style scoped>
-.grid {
+/* .grid {
 	display: flex;
 	justify-content: flex-start;
 	align-items: center;
@@ -216,6 +228,11 @@ export default {
 
 .grid p {
 	margin: 0;
+} */
+.grid {
+	display: grid;
+	grid-gap: 1em;
+	grid-template-columns: repeat(3, 1fr);
 }
 
 .title {

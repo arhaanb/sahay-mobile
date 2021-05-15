@@ -43,7 +43,10 @@
 						Select a request to verify delivered items.
 					</p>
 					<div v-for="r in response.requests" :key="r">
-						<div class="cardreq">
+						<div
+							class="cardreq"
+							@click.prevent="verifyPage(response._id, r._id)"
+						>
 							<h3 class="yellow med" style="text-transform: capitalize">
 								{{ r.need }}
 							</h3>
@@ -171,6 +174,9 @@ export default {
 						error.toString()
 				}
 			)
+		},
+		verifyPage(userid, requestid) {
+			this.$router.push(`/verify?userid=${userid}&reqid=${requestid}`)
 		}
 	}
 }

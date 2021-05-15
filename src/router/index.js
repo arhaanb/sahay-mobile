@@ -64,6 +64,10 @@ const routes = [
 		component: () => import('@/views/blocksuccess.vue')
 	},
 	{
+		path: '/verify',
+		component: () => import('@/views/verify.vue')
+	},
+	{
 		path: '/tabs/',
 		component: Tabs,
 		children: [
