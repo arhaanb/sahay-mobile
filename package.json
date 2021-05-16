@@ -5,9 +5,7 @@
 	"scripts": {
 		"serve": "vue-cli-service serve",
 		"build": "vue-cli-service build",
-		"test:unit": "vue-cli-service test:unit",
-		"test:e2e": "vue-cli-service test:e2e",
-		"lint": "vue-cli-service lint"
+		"export:android": "rm -rf www & rm -rf dist & rm -rf android & yarn build & mv dist www & npx cap add android & npx cap copy android & cordova-res android --skip-config --copy & npx cap open android"
 	},
 	"prettier": {
 		"tabWidth": 2,
