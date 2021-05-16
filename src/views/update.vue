@@ -194,7 +194,7 @@ export default {
 	name: 'Dashboard',
 	components: {
 		IonPage,
-		IonContent,
+		IonContent
 	},
 	data() {
 		return {
@@ -216,11 +216,11 @@ export default {
 				beds: '',
 				pulseOximeters: '',
 				bloodPressureMonitors: '',
-				heartRateMonitors: '',
-			},
+				heartRateMonitors: ''
+			}
 		}
 	},
-	created: function () {
+	created: function() {
 		this.user = firebase.auth().currentUser
 		// console.log(firebase.auth().currentUser.email)
 
@@ -232,9 +232,17 @@ export default {
 		this.getData()
 	},
 	methods: {
+		signOut() {
+			firebase
+				.auth()
+				.signOut()
+				.then(() => {
+					this.$router.push('/login')
+				})
+		},
 		getData() {
 			UserService.specificHospital(firebase.auth().currentUser.email).then(
-				(response) => {
+				response => {
 					this.response = response.data[0]
 					this.capacity.current = this.response.capacity.current
 					this.capacity.maximum = this.response.capacity.total
@@ -252,7 +260,7 @@ export default {
 
 					// console.log(response.data[0])
 				},
-				(error) => {
+				error => {
 					this.error =
 						(error.response &&
 							error.response.data &&
@@ -268,14 +276,14 @@ export default {
 				this.capacity,
 				firebase.auth().currentUser.email
 			).then(
-				(response) => {
+				response => {
 					if (response.data == 'Account details set.') {
 						if (!notToFeed) {
 							this.$router.push('/feed')
 						}
 					}
 				},
-				(error) => {
+				error => {
 					this.error =
 						(error.response &&
 							error.response.data &&
@@ -288,8 +296,8 @@ export default {
 		medslink() {
 			this.updateData(true)
 			this.$router.push('/otherdata')
-		},
-	},
+		}
+	}
 }
 </script>
 
