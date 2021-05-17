@@ -49,6 +49,8 @@ Prototype was built on Figma, along with branding. The app was built using VueJS
 
 We deployed redisJson as a fast access datastore for storing requested materials, supplies and equipment as part f our request, and for real time invetory management and tracking. The redisJson database was deployed as part of the redis enterpise cloud deployment. The redisJson datastore stores quantities, types and units of various medical essentials such as blood, plasma, medicines, essential equipment and gear. The realtime data is indexed using a composite key made up of a hospital location markerid, a timestamp and a type indicator. Redis allows inventory of these critical supplies to be tracked real time, therefore allowing less chances of mismatches or supply underruns occurring during emergencies.
 
+The RedisJSON deployment on the redis enterprise cloud provides a gateway to store the invetory data realtime and also allows requests to be processed much faster than with a traditional database.
+
 ## Challenges we ran into
 
 Storing images onto Blockchain, was something we discovered to be the way harder than it looks like and was seemingly impossible to figure out within a few hours. We hence decided to opt working with strings. The way to do it is store it off the chain, unless you use IPFS.
