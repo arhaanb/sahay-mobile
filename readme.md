@@ -4,6 +4,7 @@
 
 ### View the deployed site at [sahay.us](https://sahay.us)
 ### Download the app [here](https://sahay.us/download)
+### View our branding [here](https://sahay.us/design)
 
 <br />
 
