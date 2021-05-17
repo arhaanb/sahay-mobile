@@ -45,7 +45,9 @@ Let's work together to defeat the virus.
 
 ## How we built it
 
-Prototype was built on Figma, along with branding. The app was built using VueJS and Ionic. We used a NodeJS API to interact with it. The promotional website was built using Vue 3. Blockchain functionality was implemented using Google Cloud Platform and Python. The Web App was built with express and rendered using the pug templating engine.
+Prototype was built on Figma, along with branding. The app was built using VueJS and Ionic. We used a NodeJS API to interact with it. The promotional website was built using Vue 3. Backend functionality was implemented using Google Cloud Platform and Python. The Web App was built with express and rendered using the pug templating engine.
+
+We deployed redisJson as a fast access datastore for storing requested materials, supplies and equipment as part f our request, and for real time invetory management and tracking. The redisJson database was deployed as part of the redis enterpise cloud deployment. The redisJson datastore stores quantities, types and units of various medical essentials such as blood, plasma, medicines, essential equipment and gear. The realtime data is indexed using a composite key made up of a hospital location markerid, a timestamp and a type indicator. Redis allows inventory of these critical supplies to be tracked real time, therefore allowing less chances of mismatches or supply underruns occurring during emergencies.
 
 ## Challenges we ran into
 
