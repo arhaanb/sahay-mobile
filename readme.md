@@ -3,7 +3,8 @@
 > A product to help humanity, and India as a country, especially during the novel COVID-19 stricken times, by consolidating the health care system and all different medical faculties onto one platform.
 
 ### View the deployed site at [sahay.us](https://sahay.us)
-### Download the app [here](https://sahay.us/download)
+### Web app/Dashboard at [app.sahay.us](https://app.sahay.us)
+### Download the mobile app [here](https://sahay.us/download)
 ### View our branding [here](https://sahay.us/design)
 
 <br />
