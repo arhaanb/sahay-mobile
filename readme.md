@@ -29,6 +29,8 @@ For example, in the current scenario in India, where everyone is looking for bed
 
 After spending a lot of time deliberating, researching and perfecting our UI prototypes, and the final look on the app, we came up with a design which not only combated the problems our competitors face - like that of having a learning curve to operate the service, we made it easy to locate all resources and manage everything that needed to be looked at, through the home page itself. Our belief was to make a very intuitive platform, and one that would streamline the process of management greatly.
 
+<br />
+
 <p align=center>
   <img src="https://user-images.githubusercontent.com/49993666/118434665-1036b780-b6fb-11eb-84d6-2fdb073a00c8.png" width="40%" />
 </p>
@@ -41,8 +43,6 @@ The dashboard system, where hospitals manage their own staff, equipment and supp
 During this almost Third World War, all medical faculties would have to work together, pitch in, look beyond just profit to help out other surrounding hospitals to keep operating, and ensure that no patient is left unseen.
 
 Let's work together to defeat the virus.
-
----
 
 ## Source Code
 
