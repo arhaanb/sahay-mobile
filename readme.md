@@ -34,9 +34,7 @@ After spending a lot of time deliberating, researching and perfecting our UI pro
 <p align=center>
   <img src="https://user-images.githubusercontent.com/49993666/118434665-1036b780-b6fb-11eb-84d6-2fdb073a00c8.png" width="80%" />
 </p>
-
-
----
+<br />
 
 The dashboard system, where hospitals manage their own staff, equipment and supplies, and keep it in check, allows hospitals to share their resources and come together. The transfer of goods is verified using blockchain.
 
