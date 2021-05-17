@@ -41,6 +41,10 @@ After spending a lot of time deliberating, researching and perfecting our UI pro
 
 <br />
 
+## Web Application
+
+![PPT](https://user-images.githubusercontent.com/49993666/118533775-67289680-b6d3-11eb-96c6-7d59427fcefa.png)
+
 The dashboard system, where hospitals manage their own staff, equipment and supplies, and keep it in check, allows hospitals to share their resources and come together. The transfer of goods is verified using blockchain.
 
 During this almost Third World War, all medical faculties would have to work together, pitch in, look beyond just profit to help out other surrounding hospitals to keep operating, and ensure that no patient is left unseen.
@@ -49,11 +53,15 @@ Let's work together to defeat the virus.
 
 ## How we built it
 
-Prototype was built on Figma, along with branding. The app was built using VueJS and Ionic. We used a NodeJS API to interact with it. The promotional website was built using Vue 3. Backend functionality was implemented using Google Cloud Platform and Python. The Web App was built with express and rendered using the pug templating engine.
+Prototype was built on Figma, along with branding. The app was built using VueJS and Ionic. We used a NodeJS API to interact with it. The promotional website was built using Vue 3. Backend functionality was implemented using Google Cloud Platform and Python. The Web App was built with express and rendered using the pug templating engine. We built these separate apps so that it's easier for hospital staff to use any device available and manage the hospital quickly and efficiently with a seamless user experience.
 
 We deployed redisJson as a fast access datastore for storing requested materials, supplies and equipment as part of our request, and for real time invetory management and tracking. The redisJson database was deployed as part of the redis enterpise cloud deployment. The redisJson datastore stores quantities, types and units of various medical essentials such as blood, plasma, medicines, essential equipment and gear. The realtime data is indexed using a composite key made up of a hospital location markerid, a timestamp and a type indicator. Redis allows inventory of these critical supplies to be tracked real time, therefore allowing less chances of mismatches or supply underruns occurring during emergencies.
 
 The RedisJSON deployment on the redis enterprise cloud provides a gateway to store the invetory data realtime and also allows requests to be processed much faster than with a traditional database.
+
+## System Architecture
+
+![system architecture](https://user-images.githubusercontent.com/49993666/118532419-e7e69300-b6d1-11eb-92a5-c2e04ef4cdc4.png)
 
 ## Challenges we ran into
 
