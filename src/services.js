@@ -1,6 +1,7 @@
 import axios from 'axios'
 
-const API_URL = 'https://app.sahay.us/api'
+const API_URL =
+	'https://us-central1-aiot-fit-xlab.cloudfunctions.net/sahayredis'
 
 class UserService {
 	getHosp() {
