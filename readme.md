@@ -41,6 +41,22 @@ During this almost Third World War, all medical faculties would have to work tog
 
 Let's work together to defeat the virus.
 
+## How we built it
+
+Prototype was built on Figma, along with branding. The app was built using VueJS and Ionic. We used a NodeJS API to interact with it. The promotional website was built using Vue 3. Blockchain functionality was implemented using Google Cloud Platform and Python. The Web App was built with express and rendered using the pug templating engine.
+
+## Challenges we ran into
+
+Storing images onto Blockchain, was something we discovered to be the way harder than it looks like and was seemingly impossible to figure out within a few hours. We hence decided to opt working with strings. The way to do it is store it off the chain, unless you use IPFS.
+
+## Accomplishments that we're proud of
+
+Heavily researching the only thing close to our idea - hospital management programs - we built a service that not only has clean, minimalistic UI/UX, but also does not require any training to use, thus saving Hospitals and our users' money and hours to train a person. The fact that we could code in an almost replica of our design prototype into the final product was an impressive achievement for us. We also explored and delved into many new technologies, simultaneously learning and implementing blockchain technology into our product within less than 36 hours.
+
+## What we learned
+
+We learned more about the what and why to the problems of resource shortage in our country, and realised the stark difference in statements from nearby hospitals, with some pleading for certain resources and some within a few kilometres of radius saying they had excess resources. Yet there seemed to be no solution to these problems, and that led to the existence of our project. We learned more as to how blockchain technology can be used to verified items across the globe through something as simple as ID codes, which can validate the source of the supplies _(tackling the major problems like the black-market of essential life saving medicines and drugs, and the dilution and fake products in the market.)_
+
 ## Source Code
 
 - [Mobile App](https://github.com/arhaanb/sahay-mobile)
