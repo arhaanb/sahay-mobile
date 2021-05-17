@@ -32,7 +32,7 @@ After spending a lot of time deliberating, researching and perfecting our UI pro
 <br />
 
 <p align=center>
-  <img src="https://user-images.githubusercontent.com/49993666/118434665-1036b780-b6fb-11eb-84d6-2fdb073a00c8.png" width="40%" />
+  <img src="https://user-images.githubusercontent.com/49993666/118434665-1036b780-b6fb-11eb-84d6-2fdb073a00c8.png" width="80%" />
 </p>
 
 
