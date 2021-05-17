@@ -9,6 +9,10 @@
 
 <br />
 
+![image](https://user-images.githubusercontent.com/49993666/118526062-cd5ceb80-b6ca-11eb-90a8-651de9a3ab34.png)
+
+<br />
+
 The app essentially allows hospitals to collaborate and share resources using a simple User Interface. When a hospital is in need of essential equipment urgently, and another hospital is willing to help out, they can contact each other and set up a delivery right through the app.
 
 We provide hospitals with a platform to display all of their resources (like their medical supplies and equipment) and their staff, to keep them in check. It also gives you information about all other hospitals and their capacities, in a certain radius. Using this information, hospitals can place requests - and their level of urgency - for any commodities or capacity. Thus working together, and pitching in their resources, all our medical faculties will be able to manage the huge influx of patients and lack of equipment without too much worry. **These resources once shared, the transfer of supplies is validated with the use of blockchain technology.**
